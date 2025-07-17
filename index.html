@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Enhanced Calculator</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="light-mode">
+  <div class="container">
+    <div class="calculator mt-5 p-4">
+      <input type="text" id="display" class="display form-control mb-3" value="0" disabled />
+      <p id="history" class="history"></p>
+
+      <div class="row g-2 mb-2">
+        <div class="col-3"><button class="button" onclick="toggleAngleMode()">Rad</button></div>
+        <div class="col-3"><button class="button">Deg</button></div>
+        <div class="col-3"><button class="button" onclick="appendMath('factorial')">x!</button></div>
+        <div class="col-3"><button class="button" onclick="appendNumber('(')">(</button></div>
+
+        <div class="col-3"><button class="button" onclick="appendNumber(')')">)</button></div>
+        <div class="col-3"><button class="button" onclick="appendOperator('%')">%</button></div>
+        <div class="col-3"><button class="button" onclick="clearAll()">AC</button></div>
+        <div class="col-3"><button class="button" onclick="appendConst('Math.PI')">π</button></div>
+
+        <div class="col-3"><button class="button" onclick="appendMath('Math.sin')">sin</button></div>
+        <div class="col-3"><button class="button" onclick="appendMath('Math.cos')">cos</button></div>
+        <div class="col-3"><button class="button" onclick="appendMath('Math.log')">log</button></div>
+        <div class="col-3"><button class="button" onclick="appendNumber(7)">7</button></div>
+
+        <div class="col-3"><button class="button" onclick="appendNumber(8)">8</button></div>
+        <div class="col-3"><button class="button" onclick="appendNumber(9)">9</button></div>
+        <div class="col-3"><button class="button" onclick="appendOperator('/')">÷</button></div>
+        <div class="col-3"><button class="button" onclick="appendMath('Math.E')">e</button></div>
+
+        <div class="col-3"><button class="button" onclick="appendMath('Math.tan')">tan</button></div>
+        <div class="col-3"><button class="button" onclick="appendMath('Math.sqrt')">√</button></div>
+        <div class="col-3"><button class="button" onclick="appendNumber(4)">4</button></div>
+        <div class="col-3"><button class="button" onclick="appendNumber(5)">5</button></div>
+
+        <div class="col-3"><button class="button" onclick="appendNumber(6)">6</button></div>
+        <div class="col-3"><button class="button" onclick="appendOperator('*')">×</button></div>
+        <div class="col-3"><button class="button" onclick="appendMath('Math.exp')">EXP</button></div>
+        <div class="col-3"><button class="button" onclick="appendMath('Math.pow')">xʸ</button></div>
+
+        <div class="col-3"><button class="button" onclick="appendNumber(1)">1</button></div>
+        <div class="col-3"><button class="button" onclick="appendNumber(2)">2</button></div>
+        <div class="col-3"><button class="button" onclick="appendNumber(3)">3</button></div>
+        <div class="col-3"><button class="button" onclick="appendOperator('-')">−</button></div>
+
+        <div class="col-3"><button class="button" onclick="appendNumber(0)">0</button></div>
+        <div class="col-3"><button class="button" onclick="appendOperator('.')">.</button></div>
+        <div class="col-3"><button class="button" onclick="evaluateExpression()">=</button></div>
+        <div class="col-3"><button class="button" onclick="appendOperator('+')">+</button></div>
+      </div>
+
+      <div class="d-grid gap-2">
+        <button class="button" onclick="toggleDarkMode()">Toggle Theme</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="error-modal">
+    <div class="modal-content">
+      <p id="error-message"></p>
+      <button class="button mt-2" onclick="hideErrorModal()">OK</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
